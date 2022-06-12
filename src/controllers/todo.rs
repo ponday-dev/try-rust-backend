@@ -11,6 +11,6 @@ pub async fn index() -> impl response::IntoResponse {
 
 pub async fn create(
     extract::Json(new_todo): extract::Json<CreateTodoRequest>,
-) -> response::Json<CreateTodoResponse> {
+) -> impl response::IntoResponse {
     response::Json(CreateTodoResponse { id: 1 })
 }
