@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Clone)]
 pub struct Todo {
-    pub id: i32,
+    pub id: i64,
     pub title: String,
     pub body: String,
 }
@@ -18,7 +18,14 @@ pub struct CreateTodoRequest {
     pub body: String,
 }
 
+#[derive(Serialize)]
+pub struct IndexTodoResponse {
+    pub todos: Option<Vec<Todo>>,
+    pub error: Option<String>,
+}
+
 #[derive(Debug, Serialize)]
 pub struct CreateTodoResponse {
-    pub id: i32,
+    pub id: Option<i64>,
+    pub error: Option<String>,
 }
